@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        color: #f2f2f2;
+      }
+      body {
+        display: flex;
+        height: 1/0vh;
+      }
+      #sidebar {
+        width: 100%;
+        max-width: 300px;
+        background-color: rgb(209, 179, 122);
+        padding: 20px;
+      }
+      img {
+        border-radius: 50%;
+        width: 100%;
+      }
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 10px;
+      }
+      .python,
+      .react,
+      .java,
+      .C {
+        margin-bottom: 10px;
+      }
+      .react {
+        width: 80px;
+        margin-top: 20px;
+        margin-left: 10px;
+      }
+      .python {
+        width: 120px;
+      }
+      .java {
+        width: 120px;
+      }
+      .C {
+        width: 60px;
+        margin-left: 20px;
+      }
+      h2,
+      h4,
+      h3 {
+        text-align: left;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        font-style: italic;
+        margin-bottom: 10px;
+      }
+      .contact-icons {
+        font-size: 20px;
+        margin-right: 10px;
+      }
+      #Mainbar {
+        flex: 1;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-radius: 10px;
+      }
+      .Like {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      .Like h1 {
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #333;
+        padding-bottom: 10px;
+      }
+      .Like ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .Like li {
+        color: #555;
+        font-style: normal;
+        padding: 8px;
+        margin: 5px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+      .Like li:hover {
+        background-color: #ddd;
+      }
+      .Schedule {
+        margin-top: 20px;
+        text-align: center;
+      }
+      .Schedule h1 {
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #333;
+        padding-bottom: 10px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        font-size: 14px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+        color: #333;
+      }
+      th {
+        background-color: #333;
+        color: white;
+      }
+      tr,
+      th,
+      td {
+        border: 1px solid #ddd;
+        max-width: 10px;
+      }
+      td {
+        vertical-align: top;
+      }
+      td.MON,
+      td.TUE,
+      td.WED,
+      td.THU,
+      td.FRI,
+      td.SAT,
+      td.SUN {
+        font-size: 12px;
+        padding: 8px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+      td.MON {
+        background-color: #87ceeb;
+      }
+      td.TUE {
+        background-color: #ffd700;
+      }
+      td.WED {
+        background-color: #98fb98;
+      }
+      td.THU {
+        background-color: #ff6347;
+      }
+      td.FRI {
+        background-color: #add8e6;
+      }
+      td.SAT {
+        background-color: #ffb6c1;
+      }
+      td.SUN {
+        background-color: #87cefa;
+      }
+      td.MON:hover,
+      td.TUE:hover,
+      td.WED:hover,
+      td.THU:hover,
+      td.FRI:hover,
+      td.SAT:hover,
+      td.SUN:hover {
+        background-color: #f2f2f2;
+      }
+      .friend {
+        margin-bottom: 20px;
+        display: flex;
+        overflow-x: auto;
+        justify-content: space-evenly;
+        text-align: center;
+      }
+      .friend a {
+        margin-right: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: #333;
+        transition: transform 0.3s ease-in-out;
+      }
+      .friend h2 {
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 25px;
+      }
+      .friend h5 {
+        color: #555;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+      .friend img {
+        width: 90px;
+        border-radius: 50%;
+        margin-bottom: 5px;
+        transition: opacity 0.3s ease-in-out;
+      }
+      .friend a:hover img {
+        opacity: 0.8;
+      }
+      .friend-details {
+        display: none;
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        text-align: center;
+        width: 150px;
+      }
+      .friend:hover .friend-details,
+      .friend img:hover + .friend-details {
+        display: block;
+      }
+      .friend a {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: #333;
+        transition: transform 0.3s ease-in-out;
+      }
+      .friend-details h5 {
+        margin-top: 5px;
+        color: #555;
+        font-size: 14px;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <img src="src/Pond.jpg" alt="Avatar" />
+      <h2>About me</h2>
+      <h4>Name: Sorrawit Nuernuam</h4>
+      <h4>Nisit-ID: 6421604927</h4>
+      <h4>G-PAX: 3.86</h4>
+      <h3>_________________________</h3>
+      <h2>Skill</h2>
+      <div class="skills">
+        <div class="python">
+          <img
+            src="https://www.svgrepo.com/show/376344/python.svg"
+            alt="python"
+            width="200"
+          />
+        </div>
+        <div class="react">
+          <img
+            src="https://cdn1.iconfinder.com/data/icons/soleicons-fill-vol-1/64/reactjs_javascript_library_atom_atomic_react-512.png"
+            alt="react"
+          />
+        </div>
+        <div class="java">
+          <img
+            src="https://logos-world.net/wp-content/uploads/2022/07/Java-Logo.png"
+            alt="java"
+          />
+        </div>
+        <div class="C">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png"
+            alt="C"
+          />
+        </div>
+      </div>
+      <h3>_________________________</h3>
+      <h2>Contact</h2>
+      <ul>
+        <li><i class="fas fa-phone contact-icons"></i> Tel: 0982874101</li>
+        <li>
+          <i class="fas fa-envelope contact-icons"></i> Email: sorrawit.n@ku.th
+        </li>
+        <li>
+          <i class="fab fa-facebook contact-icons"></i> Facebook: Pond Sorrawit
+        </li>
+        <li>
+          <i class="fab fa-instagram contact-icons"></i> Instagram: pondy_zzz
+        </li>
+      </ul>
+    </div>
+    <div id="Mainbar">
+      <div class="Like">
+        <h1>What I like!!</h1>
+      </div>
+      <div class="Like">
+        <ul>
+          <li>Programming</li>
+          <li>Playing Game</li>
+          <li>Guitar</li>
+          <li>Basketball</li>
+          <li>Anime</li>
+        </ul>
+      </div>
+      <div class="Like">
+        <h1>What I don't like!!</h1>
+      </div>
+      <div class="Like">
+        <ul>
+          <li>Banana</li>
+          <li>Swimming</li>
+          <li>Toxic Friend</li>
+          <li>Running</li>
+          <li>Egoist</li>
+        </ul>
+      </div>
+      <div class="friend">
+        <h2>Friends</h2>
+      </div>
+      <div class="friend">
+        <div class="pasin">
+          <a
+            href="https://www.facebook.com/profile.php?id=100088764879411"
+            target="_blank"
+          >
+            <img src="src/Pasin.jpg" alt="pasin" />
+            <h5>Pasin Sangjun</h5>
+          </a>
+        </div>
+        <div class="pradipat">
+          <a href="https://www.facebook.com/nik.keng.9" target="_blank">
+            <img src="src/NikPr.jpg" alt="pradipat" />
+            <h5>Pradipat Nantasarn</h5>
+          </a>
+        </div>
+        <div class="pakin">
+          <a href="https://www.facebook.com/pakin.suwannop" target="_blank">
+            <img src="src/Pakin.jpg" alt="pakin" />
+            <h5>Pakin Suwannop</h5>
+          </a>
+        </div>
+        <div class="napat">
+          <a
+            href="https://www.facebook.com/Napat.peach.Jarainsin"
+            target="_blank"
+          >
+            <img src="src/Peach.jpg" alt="Napat" />
+            <h5>Napat Jaroensin</h5>
+          </a>
+        </div>
+        <div class="Pai">
+          <a href="https://www.facebook.com/idpaiiz.me" target="_blank">
+            <img src="src/Aon.jpg" alt="Napat" />
+            <h5>Aonkunya Chaitup</h5>
+          </a>
+        </div>
+      </div>
+      <div class="Schedule">
+        <h1>Schedule</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Day/Time</th>
+              <th>8:00</th>
+              <th>9:00</th>
+              <th>10:00</th>
+              <th>11:00</th>
+              <th>12:00</th>
+              <th>13:00</th>
+              <th>14:00</th>
+              <th>15:00</th>
+              <th>16:00</th>
+              <th>17:00</th>
+              <th>18:00</th>
+              <th>19:00</th>
+              <th>20:00</th>
+              <th>21:00</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="MON">MON</td>
+              <td colspan="2"></td>
+              <td colspan="2" class="MON">
+                01418442-60<br />[10:00 - 12:00]<br />Web Technology and Web
+                Services<br />ROOM: SC9-402<br />SEC700 Lecture
+              </td>
+              <td colspan="1"></td>
+              <td colspan="2" class="MON">
+                01418442-60<br />[13:00 - 15:00]<br />Web Technology and Web
+                Services<br />ROOM: SC9-402<br />SEC711 Laboratory
+              </td>
+            </tr>
+            <tr>
+              <td class="TUE">TUE</td>
+              <td></td>
+              <td colspan="3" class="TUE">
+                01418351-60<br />[9:00 - 12:00]<br />Computer Communications and
+                Cloud Computing Principles<br />ROOM: Select Class Room<br />SEC700
+                Lecture
+              </td>
+              <td colspan="5"></td>
+              <td colspan="3" class="TUE">
+                01418385-60<br />[17:00 - 20:00]<br />Digital Image
+                Processing<br />ROOM: SC9-333<br />SEC700 Lecture
+              </td>
+            </tr>
+            <tr>
+              <td class="WED">WED</td>
+              <td colspan="11"></td>
+              <td colspan="2" class="WED">
+                01418390-60<br />[19:00 - 21:00]<br />Cooperative Education
+                Preparation<br />ROOM: Contact Teacher<br />SEC706 Lecture
+              </td>
+            </tr>
+            <tr>
+              <td class="THU">THU</td>
+              <td colspan="2"></td>
+              <td colspan="2" class="THU">
+                01418333-60<br />[10:00 - 12:00]<br />Automata Theory<br />ROOM:
+                Select Class Room<br />SEC700 Lecture
+              </td>
+            </tr>
+            <tr>
+              <td class="FRI">FRI</td>
+              <td colspan="2"></td>
+              <td colspan="2" class="FRI">
+                01418334-60<br />[10:00 - 12:00]<br />Compiler Techniques<br />ROOM:
+                Select Class Room<br />SEC700 Lecture
+              </td>
+              <td colspan="1"></td>
+              <td colspan="3" class="FRI">
+                01418332-60<br />[13:00 - 16:00]<br />Information System
+                Security<br />ROOM: Select Class Room<br />SEC700 Lecture
+              </td>
+            </tr>
+            <tr>
+              <td class="SAT">SAT</td>
+            </tr>
+            <tr>
+              <td class="SUN">SUN</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
